@@ -1,5 +1,4 @@
 .country-item {
-    /* background-color: red; */
     /* width: 300px; */
     display: flex;
     flex-direction: column;
@@ -15,10 +14,13 @@
 .flag-container {
     /* background-color: red; */
     height: 200px;
+
+    width: 100%;
 }
 
 .flag-container img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 
@@ -45,4 +47,8 @@
 
 .country-details>div h3 span {
     font-weight: 300;
+}
+
+#dark .country-item {
+    background-color: var(--dark-blue-dm-elements);
 }

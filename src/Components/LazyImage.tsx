@@ -8,10 +8,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ imgSrc }) => {
   const [inView, setInView] = useState<boolean>(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
 
-  let callback = (
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver
-  ) => {
+  let callback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setInView(true);

@@ -1,6 +1,6 @@
 import CountryItem from "../CountryItem/CountryItem";
 import "./countryLists.css";
-import { BASE_URL, API_KEY } from "../../utils/constants";
+import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
