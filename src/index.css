@@ -61,7 +61,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: 'Nunito Sans', sans-serif;
-  background-color: var(--very-light-gray-lm-background);
+  /* background-color: var(--very-light-gray-lm-background); */
 }
 
 /* A elements that don't have a class get default styles */
@@ -86,6 +86,20 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#light,
+#dark {
+  min-height: 100vh;
+}
+
+#light {
+  background-color: var(--very-light-gray-lm-background);
+}
+
+#dark {
+  background-color: var(--very-dark-blue-dm-background);
+  color: var(--clr-white);
 }
 
 @media (min-width:780px) {

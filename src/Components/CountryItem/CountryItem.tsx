@@ -1,6 +1,5 @@
 import LazyImage from "../LazyImage";
 import "./countryItem.css";
-import { useEffect } from "react";
 
 type Country = {
   name: {
