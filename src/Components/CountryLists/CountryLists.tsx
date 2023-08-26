@@ -4,6 +4,7 @@ import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
+import Header from "../Header/Header";
 
 const CountryLists = () => {
   const getAllCountries = async () => {
@@ -27,6 +28,7 @@ const CountryLists = () => {
 
   return (
     <section className="countrylist--section">
+      <Header />
       <div className="container countrylist__container">
         {countries &&
           countries.map((country, index) => (
