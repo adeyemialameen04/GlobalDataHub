@@ -1,0 +1,28 @@
+.nav {
+    padding-block: 1rem;
+    /* background-color: green; */
+    border: 1px solid black;
+}
+
+.nav__container {
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.mode-btn {
+    background-color: transparent;
+    border: none;
+    gap: .5rem;
+    font-size: 1rem;
+}
+
+.mode-icon {
+    font-size: 1.5rem;
+}

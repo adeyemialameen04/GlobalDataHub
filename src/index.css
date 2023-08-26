@@ -21,6 +21,18 @@
   padding: 0;
   font: inherit;
 
+  /* ## Colors */
+
+  /* ### Neutral */
+
+  --dark-blue-dm-elements: hsl(209, 23%, 22%);
+  --very-dark-blue-dm-background: hsl(207, 26%, 17%);
+  --very-dark-blue-lm-text: hsl(200, 15%, 8%);
+  --dark-gray-lm-input: hsl(0, 0%, 52%);
+  --very-light-gray-lm-background: hsl(0, 0%, 98%);
+  --white-dm-text-and-lm-elements: hsl(0, 0%, 100%);
+
+
   --transition: all 350ms ease-in-out;
   --container-md: 94%;
   --container-lg: 88%;
@@ -46,6 +58,7 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 /* A elements that don't have a class get default styles */
@@ -64,6 +77,12 @@ svg {
 .container {
   width: var(--container-md);
   margin: 0 auto;
+}
+
+.center-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width:780px) {
