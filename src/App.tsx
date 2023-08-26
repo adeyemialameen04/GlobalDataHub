@@ -1,7 +1,6 @@
 import Navbar from "./Components/Navbar/Navbar";
 import CountryLists from "./Components/CountryLists/CountryLists.tsx";
 import { createContext, useState } from "react";
-import Loader from "./Components/Loader/Loader.tsx";
 
 export const ThemeContext = createContext({
   theme: "light",

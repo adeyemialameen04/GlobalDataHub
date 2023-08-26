@@ -31,7 +31,6 @@ const CountryLists = () => {
   const {
     data: countries,
     refetch,
-    isStale,
     isLoading,
   } = useQuery(["countries", region], () => getAllCountries(region), {
     refetchInterval: 60000,
