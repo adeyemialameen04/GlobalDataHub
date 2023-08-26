@@ -22,10 +22,6 @@ const CountryItem = ({ country }: CountryProps) => {
   return (
     <article className="country-item">
       <div className="flag-container">
-        {/* <img
-          src={country?.flags?.svg ? country?.flags?.svg : country?.flags?.png}
-          alt=""
-        /> */}
         <LazyImage
           imgSrc={
             country?.flags?.svg ? country?.flags?.svg : country?.flags?.png
@@ -36,7 +32,7 @@ const CountryItem = ({ country }: CountryProps) => {
         <h1>{country?.name.official}</h1>
         <div>
           <h3>
-            Population: <span>{country.population}</span>
+            Population: <span>{country.population.toLocaleString()}</span>
           </h3>
           <h3>
             Region: <span>{country.region}</span>
