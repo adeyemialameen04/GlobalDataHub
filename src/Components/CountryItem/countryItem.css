@@ -12,6 +12,16 @@
     padding-bottom: 2rem;
 }
 
+.flag-container {
+    /* background-color: red; */
+    height: 200px;
+}
+
+.flag-container img {
+    height: 100%;
+    object-fit: cover;
+}
+
 .country-details {
     padding-inline: 1rem;
 }

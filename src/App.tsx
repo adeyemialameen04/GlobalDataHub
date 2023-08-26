@@ -1,7 +1,3 @@
-import { useEffect } from "react";
-import { API_KEY, BASE_URL } from "./utils/constants";
-import axios from "axios";
-import CountryItem from "./Components/CountryItem/CountryItem.tsx";
 import Navbar from "./Components/Navbar/Navbar";
 import CountryLists from "./Components/CountryLists/CountryLists.tsx";
 
