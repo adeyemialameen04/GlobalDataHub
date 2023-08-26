@@ -25,12 +25,14 @@
 
   /* ### Neutral */
 
-  --dark-blue-dm-elements: hsl(209, 23%, 22%);
-  --very-dark-blue-dm-background: hsl(207, 26%, 17%);
-  --very-dark-blue-lm-text: hsl(200, 15%, 8%);
-  --dark-gray-lm-input: hsl(0, 0%, 52%);
-  --very-light-gray-lm-background: hsl(0, 0%, 98%);
-  --white-dm-text-and-lm-elements: hsl(0, 0%, 100%);
+  --clr-white: #fff;
+  --clr-black: #000;
+  --dark-blue-dm-elements: #2b3945;
+  --very-dark-blue-dm-background: #202c37;
+  --very-dark-blue-lm-text: #111517;
+  --dark-gray-lm-input: #858585;
+  --very-light-gray-lm-background: #fafafa;
+  --white-dm-text-and-lm-elements: #ffffff;
 
 
   --transition: all 350ms ease-in-out;
@@ -59,6 +61,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--very-light-gray-lm-background);
 }
 
 /* A elements that don't have a class get default styles */

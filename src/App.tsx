@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { API_KEY, BASE_URL } from "./utils/constants"
 import axios from "axios"
+import CountryItem from "./Components/CountryItem/CountryItem.tsx"
 import Navbar from "./Components/Navbar/Navbar"
 
 function App() {
@@ -23,7 +24,13 @@ function App() {
   return (
     <>
     <Navbar/>
-      Hello hows u
+      <div className="container">
+      <CountryItem/>
+      <CountryItem/>
+      <CountryItem/>
+      <CountryItem/>
+      <CountryItem/>
+      </div>
     </>
   )
 }
