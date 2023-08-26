@@ -1,11 +1,11 @@
-import { useEffect } from "react"
-import { API_KEY, BASE_URL } from "./utils/constants"
-import axios from "axios"
-import CountryItem from "./Components/CountryItem/CountryItem.tsx"
-import Navbar from "./Components/Navbar/Navbar"
+import { useEffect } from "react";
+import { API_KEY, BASE_URL } from "./utils/constants";
+import axios from "axios";
+import CountryItem from "./Components/CountryItem/CountryItem.tsx";
+import Navbar from "./Components/Navbar/Navbar";
+import CountryLists from "./Components/CountryLists/CountryLists.tsx";
 
 function App() {
-
   // useEffect(()=>{
   //   const getCountriesData =async()=>{
   //     try {
@@ -23,16 +23,10 @@ function App() {
 
   return (
     <>
-    <Navbar/>
-      <div className="container">
-      <CountryItem/>
-      <CountryItem/>
-      <CountryItem/>
-      <CountryItem/>
-      <CountryItem/>
-      </div>
+      <Navbar />
+      <CountryLists />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
