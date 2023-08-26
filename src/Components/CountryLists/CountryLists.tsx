@@ -10,10 +10,10 @@ import Loader from "../Loader/Loader";
 const CountryLists = () => {
   const [region, setRegion] = useState("");
 
-  const getAllCountries = async (selectedRegion: string) => {
+  const getAllCountries = async () => {
     try {
-      if (selectedRegion !== "") {
-        const url = `${BASE_URL}region/${selectedRegion}`;
+      if (region !== "") {
+        const url = `${BASE_URL}region/${region}`;
         const response = await axios.get(url);
         const data: [] = await response.data;
         return data;
@@ -32,7 +32,7 @@ const CountryLists = () => {
     data: countries,
     refetch,
     isLoading,
-  } = useQuery(["countries", region], () => getAllCountries(region), {
+  } = useQuery(["countries", region], getAllCountries, {
     refetchInterval: 60000,
     staleTime: 60000,
   });
@@ -43,12 +43,7 @@ const CountryLists = () => {
     }
   }, [countries]);
 
-  const handleRegionChange = (selectedRegion: string) => {
-    setRegion(selectedRegion);
-  };
-
   useEffect(() => {
-    console.log(region);
     refetch();
   }, [region]);
 
@@ -58,7 +53,7 @@ const CountryLists = () => {
 
   return (
     <section className="countrylist--section">
-      <Header onRegionChange={handleRegionChange} />
+      <Header setRegion={setRegion} region={region} />
       <div className="container countrylist__container">
         {countries &&
           countries.map((country, index) => (

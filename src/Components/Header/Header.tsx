@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./header.css";
 
 interface HeaderProps {
-  onRegionChange: (selectedRegion: string) => void;
+  setRegion: (region: string) => void;
+  region: string;
 }
 
-const Header = ({ onRegionChange }: HeaderProps) => {
-  const [region, setRegion] = useState<string>("");
+const Header: React.FC<HeaderProps> = ({ setRegion, region }) => {
+  useEffect(() => {
+    console.log(region);
+  }, [region]);
 
-  const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeRegion = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
-    const selectedRegion = e.target.value;
-    setRegion(selectedRegion);
-    onRegionChange(selectedRegion);
+    setRegion(e.target.value);
   };
 
   return (
@@ -20,7 +21,7 @@ const Header = ({ onRegionChange }: HeaderProps) => {
       <div className="container header__container">
         <input type="text" />
         <select
-          onChange={handleRegionChange}
+          onChange={handleChangeRegion}
           value={region}
           name="region"
           id="region"
