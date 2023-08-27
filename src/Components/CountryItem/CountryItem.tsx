@@ -1,17 +1,16 @@
 import LazyImage from "../LazyImage";
+import { Link } from "react-router-dom";
 import "./countryItem.css";
+import { Flag } from "../../utils/Country.types";
 
 type Country = {
   name: {
-    official: string;
+    common: string;
   };
   population: number;
   region: string;
   capital: string;
-  flags: {
-    svg: string;
-    png: string;
-  };
+  flags: Flag;
 };
 
 type CountryProps = {
@@ -19,8 +18,16 @@ type CountryProps = {
 };
 
 const CountryItem = ({ country }: CountryProps) => {
+  const formatRouteName = (name: string) => {
+    const formattedName = name.replace(/\s+/g, "-");
+    return formattedName;
+  };
+
   return (
-    <article className="country-item">
+    <Link
+      to={`country/${formatRouteName(country?.name.common)}`}
+      className="country-item"
+    >
       <div className="flag-container">
         <LazyImage
           imgSrc={
@@ -28,8 +35,8 @@ const CountryItem = ({ country }: CountryProps) => {
           }
         />
       </div>
-      <div className="country-details">
-        <h1>{country?.name.official}</h1>
+      <div className="country-info">
+        <h1>{country?.name.common}</h1>
         <div>
           <h3>
             Population: <span>{country.population.toLocaleString()}</span>
@@ -42,7 +49,7 @@ const CountryItem = ({ country }: CountryProps) => {
           </h3>
         </div>
       </div>
-    </article>
+    </Link>
   );
 };
 
