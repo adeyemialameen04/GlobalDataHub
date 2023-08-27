@@ -24,7 +24,13 @@ const CountryLists = () => {
       const data: [] = await response.data;
       return data;
     } catch (error) {
-      if (error.response.data.message === "Not Found") {
+      // if (error.response.data.message === "Not Found") {
+      // }
+      if (
+        axios.isAxiosError(error) &&
+        error.response &&
+        error.response.data?.message === "Not Found"
+      ) {
         setCountryNotFound(true);
       }
       const data: [] = [];
