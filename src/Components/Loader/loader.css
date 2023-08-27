@@ -25,3 +25,7 @@
         transform: rotate(360deg);
     }
 }
+
+#dark .loader {
+    border-color: var(--clr-white);
+}
