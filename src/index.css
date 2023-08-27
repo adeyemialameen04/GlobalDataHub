@@ -97,8 +97,16 @@ svg {
   background-color: var(--very-light-gray-lm-background);
 }
 
+#light a {
+  color: var(--clr-black);
+}
+
 #dark {
   background-color: var(--very-dark-blue-dm-background);
+  color: var(--clr-white);
+}
+
+#dark a {
   color: var(--clr-white);
 }
 

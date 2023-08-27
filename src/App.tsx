@@ -1,6 +1,7 @@
 import Navbar from "./Components/Navbar/Navbar";
-import CountryLists from "./Components/CountryLists/CountryLists.tsx";
+import { BrowserRouter as Router } from "react-router-dom";
 import { createContext, useState } from "react";
+import RoutesManager from "./Components/RoutesManager.tsx";
 
 export const ThemeContext = createContext({
   theme: "light",
@@ -15,14 +16,14 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
       <ThemeContext.Provider value={{ theme, handleThemeToggle }}>
         <div id={theme === "light" ? "light" : "dark"}>
           <Navbar />
-          <CountryLists />
+          <RoutesManager />
         </div>
       </ThemeContext.Provider>
-    </>
+    </Router>
   );
 }
 

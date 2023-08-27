@@ -4,7 +4,7 @@ type LazyImageProps = {
   imgSrc: string;
 };
 
-const LazyImage: React.FC<LazyImageProps> = ({ imgSrc }) => {
+const LazyImage = ({ imgSrc }: LazyImageProps) => {
   const [inView, setInView] = useState<boolean>(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
 

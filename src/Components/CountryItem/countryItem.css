@@ -9,6 +9,7 @@
     -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.15);
     margin-bottom: 4rem;
     padding-bottom: 2rem;
+    text-decoration: none;
 }
 
 .flag-container {
@@ -24,28 +25,28 @@
     object-fit: cover;
 }
 
-.country-details {
+.country-info {
     padding-inline: 1rem;
 }
 
-.country-details h1 {
+.country-info h1 {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
-.country-details>div {
+.country-info>div {
     /* background-color: red; */
     display: flex;
     flex-direction: column;
     gap: .2rem;
 }
 
-.country-details>div h3 {
+.country-info>div h3 {
     font-weight: 600;
 }
 
-.country-details>div h3 span {
+.country-info>div h3 span {
     font-weight: 300;
 }
 
