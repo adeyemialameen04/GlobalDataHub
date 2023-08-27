@@ -6,11 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "../Loader/Loader";
 import { Flag } from "../../utils/Country.types";
 import LazyImage from "../LazyImage";
-import { useEffect, useState } from "react";
 
 const CountryDetail = () => {
   const { name } = useParams();
-  const [flagImg, setFlagImg] = useState<string>("");
 
   const replaceHyphenWithSpace = (inputString: string) => {
     return inputString.replace(/-/g, " ");
@@ -60,25 +58,6 @@ const CountryDetail = () => {
   if (isLoading) {
     return <Loader />;
   }
-
-  const renderFlagImage = () => {
-    if (countryDetails?.flags?.png) {
-      setFlagImg(countryDetails.flags.png);
-    } else if (countryDetails?.flags?.svg) {
-      setFlagImg(countryDetails?.flags?.svg);
-    } else {
-      setFlagImg("");
-    }
-  };
-
-  // useEffect(() => {
-  // const entries = Object.entries(countryDetails?.name.nativeName ?? {}).map(
-  // ([nativeCode, nativeText]) => {
-  // console.log(nativeCode, nativeText);
-  // }
-  // );
-  // console.log(entries);
-  // }, [countryDetails]);
 
   return (
     <section className="country-detail--section">
