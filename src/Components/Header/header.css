@@ -29,8 +29,23 @@
     height: 40px;
     outline: none;
     border: none;
-
     background-color: transparent;
+}
+
+.select-region {
+    height: 40px;
+    padding-inline: .8rem;
+    width: 170px;
+    background-color: transparent;
+    border: none;
+    padding-inline-start: 0.6rem;
+    box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.select-region option {
+    width: 100%;
 }
 
 #dark .input-container {
@@ -38,5 +53,10 @@
 }
 
 #dark .search-input {
+    color: var(--clr-white);
+}
+
+#dark .select-region {
+    background-color: var(--dark-blue-dm-elements);
     color: var(--clr-white);
 }

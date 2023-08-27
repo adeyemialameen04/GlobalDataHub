@@ -1,13 +1,13 @@
 .nav {
     padding-block: 1rem;
-    /* background-color: green; */
-    border: 1px solid black;
+    box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.15);
 }
 
 .nav__container {
     display: flex;
     align-items: center;
-    /* background-color: red; */
     justify-content: space-between;
 }
 
@@ -25,4 +25,8 @@
 
 .mode-icon {
     font-size: 1.5rem;
+}
+
+#dark .mode-icon {
+    color: var(--clr-white);
 }

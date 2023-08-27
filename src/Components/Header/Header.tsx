@@ -38,12 +38,14 @@ const Header = ({
             className="search-input"
             value={searchQuery}
             onChange={handleSearchCountry}
+            placeholder="Search for a country ..."
             type="text"
           />
         </div>
         <select
           onChange={handleChangeRegion}
           value={region}
+          className="select-region"
           name="region"
           id="region"
         >
