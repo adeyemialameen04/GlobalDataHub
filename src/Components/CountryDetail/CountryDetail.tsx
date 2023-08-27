@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "../Loader/Loader";
 import { Flag } from "../../utils/Country.types";
 import LazyImage from "../LazyImage";
+import BackBtn from "../BackBtn/BackBtn";
 
 const CountryDetail = () => {
   const { name } = useParams();
@@ -61,6 +62,7 @@ const CountryDetail = () => {
 
   return (
     <section className="country-detail--section">
+      <BackBtn />
       <div className="container country-detail__container">
         <div className="detail-fag-container">
           <LazyImage

@@ -1,0 +1,18 @@
+.back-container {
+    margin-bottom: 1rem;
+}
+
+.back-container button {
+    padding-block: .4rem;
+    --tw-shadow: hsla(210, 8%, 62%, .2) 0px 8px 24px;
+    --tw-shadow-colored: 0px 8px 24px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    width: 120px;
+    background-color: transparent;
+    border: none;
+}
+
+#dark .back-container button {
+    color: var(--clr-white);
+    background-color: var(--dark-blue-dm-elements);
+}
