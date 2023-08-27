@@ -1,12 +1,19 @@
 import { useEffect } from "react";
 import "./header.css";
 
-interface HeaderProps {
-  setRegion: (region: string) => void;
+type HeaderProps = {
   region: string;
-}
+  setRegion: (region: string) => void;
+  searchQuery: string;
+  setSearchQuery: (searchQuery: string) => void;
+};
 
-const Header: React.FC<HeaderProps> = ({ setRegion, region }) => {
+const Header = ({
+  setRegion,
+  region,
+  setSearchQuery,
+  searchQuery,
+}: HeaderProps) => {
   useEffect(() => {
     console.log(region);
   }, [region]);
@@ -16,10 +23,15 @@ const Header: React.FC<HeaderProps> = ({ setRegion, region }) => {
     setRegion(e.target.value);
   };
 
+  const handleSearchCountry = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <header className="header">
       <div className="container header__container">
-        <input type="text" />
+        <input value={searchQuery} onChange={handleSearchCountry} type="text" />
         <select
           onChange={handleChangeRegion}
           value={region}

@@ -8,34 +8,48 @@ import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
 
 const CountryLists = () => {
-  const [region, setRegion] = useState("");
+  const [region, setRegion] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [countryNotFound, setCountryNotFound] = useState<boolean>(false);
 
   const getAllCountries = async () => {
     try {
-      if (region !== "") {
-        const url = `${BASE_URL}region/${region}`;
-        const response = await axios.get(url);
-        const data: [] = await response.data;
-        return data;
-      } else {
-        const url = `${BASE_URL}all`;
-        const response = await axios.get(url);
-        const data: [] = await response.data;
-        return data;
+      let url = `${BASE_URL}all`;
+      if (region.trim() !== "") {
+        url = `${BASE_URL}region/${region}`;
+      } else if (searchQuery.trim() !== "") {
+        url = `${BASE_URL}name/${searchQuery}`;
       }
+      const response = await axios.get(url);
+      const data: [] = await response.data;
+      return data;
     } catch (error) {
-      console.error(error);
+      if (error.response.data.message === "Not Found") {
+        setCountryNotFound(true);
+      }
+      const data: [] = [];
+      return data;
     }
   };
 
   const {
     data: countries,
-    refetch,
     isLoading,
+    isError,
+    error,
   } = useQuery(["countries", region], getAllCountries, {
     refetchInterval: 60000,
     staleTime: 60000,
   });
+  const { data: resultCountries } = useQuery(
+    ["countries", searchQuery],
+    getAllCountries,
+    {
+      refetchInterval: 60000,
+      staleTime: 60000,
+      enabled: !!searchQuery,
+    }
+  );
 
   useEffect(() => {
     if (countries) {
@@ -43,22 +57,42 @@ const CountryLists = () => {
     }
   }, [countries]);
 
-  useEffect(() => {
-    refetch();
-  }, [region]);
-
   if (isLoading) {
     return <Loader />;
   }
 
+  if (isError) {
+    console.log(error);
+  }
+
   return (
     <section className="countrylist--section">
-      <Header setRegion={setRegion} region={region} />
+      <Header
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        setRegion={setRegion}
+        region={region}
+      />
       <div className="container countrylist__container">
-        {countries &&
-          countries.map((country, index) => (
-            <CountryItem country={country} key={index} />
-          ))}
+        <>
+          {searchQuery === ""
+            ? countries?.length !== 0 &&
+              countries?.map((country, index) => (
+                <CountryItem country={country} key={index} />
+              ))
+            : resultCountries?.length !== 0 &&
+              resultCountries?.map((country, index) => (
+                <CountryItem country={country} key={index} />
+              ))}
+        </>
+      </div>
+      <div className="container">
+        {countryNotFound && (
+          <h1>
+            Sorry this country is not found pls check the search box and try
+            again
+          </h1>
+        )}
       </div>
     </section>
   );
