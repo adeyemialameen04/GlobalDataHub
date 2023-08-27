@@ -30,9 +30,8 @@ const CountryItem = ({ country }: CountryProps) => {
     >
       <div className="flag-container">
         <LazyImage
-          imgSrc={
-            country?.flags?.svg ? country?.flags?.svg : country?.flags?.png
-          }
+          imgSrc={country?.flags?.svg ?? country?.flags?.png ?? ""}
+          imgAlt={`${country?.name?.common} flag`}
         />
       </div>
       <div className="country-info">

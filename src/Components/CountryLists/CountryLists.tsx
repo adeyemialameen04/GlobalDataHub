@@ -57,12 +57,6 @@ const CountryLists = () => {
     }
   );
 
-  useEffect(() => {
-    if (countries) {
-      console.log(countries);
-    }
-  }, [countries]);
-
   if (isLoading) {
     return <Loader />;
   }
