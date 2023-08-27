@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from "react";
 
 type LazyImageProps = {
   imgSrc: string;
+  imgAlt: string;
 };
 
-const LazyImage = ({ imgSrc }: LazyImageProps) => {
+const LazyImage = ({ imgSrc, imgAlt }: LazyImageProps) => {
   const [inView, setInView] = useState<boolean>(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
 
@@ -26,10 +27,11 @@ const LazyImage = ({ imgSrc }: LazyImageProps) => {
     return () => observer.disconnect();
   }, []);
   return inView ? (
-    <img ref={imgRef} src={imgSrc} alt="" />
+    <img ref={imgRef} src={imgSrc} alt={imgAlt} />
   ) : (
     <img
       ref={imgRef}
+      alt={imgAlt}
       style={{
         height: "100px",
         width: "100px",

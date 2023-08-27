@@ -1,15 +1,16 @@
-import { useEffect } from "react";
 import "./countryDetail.css";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../Loader/Loader";
-import { Flag, LanguageNames } from "../../utils/Country.types";
+import { Flag } from "../../utils/Country.types";
 import LazyImage from "../LazyImage";
+import { useEffect, useState } from "react";
 
 const CountryDetail = () => {
   const { name } = useParams();
+  const [flagImg, setFlagImg] = useState<string>("");
 
   const replaceHyphenWithSpace = (inputString: string) => {
     return inputString.replace(/-/g, " ");
@@ -18,7 +19,7 @@ const CountryDetail = () => {
   type CountryDetail = {
     name: {
       official: string;
-      nativename?: LanguageNames;
+      nativeName: object;
     };
     flags: Flag;
     population: number;
@@ -60,21 +61,53 @@ const CountryDetail = () => {
     return <Loader />;
   }
 
+  const renderFlagImage = () => {
+    if (countryDetails?.flags?.png) {
+      setFlagImg(countryDetails.flags.png);
+    } else if (countryDetails?.flags?.svg) {
+      setFlagImg(countryDetails?.flags?.svg);
+    } else {
+      setFlagImg("");
+    }
+  };
+
+  // useEffect(() => {
+  // const entries = Object.entries(countryDetails?.name.nativeName ?? {}).map(
+  // ([nativeCode, nativeText]) => {
+  // console.log(nativeCode, nativeText);
+  // }
+  // );
+  // console.log(entries);
+  // }, [countryDetails]);
+
   return (
     <section className="country-detail--section">
       <div className="container country-detail__container">
         <div className="detail-fag-container">
           <LazyImage
             imgSrc={
-              countryDetails?.flags?.svg ?? countryDetails?.flags?.png ?? ""
+              countryDetails?.flags.svg ?? countryDetails?.flags.png ?? ""
             }
+            imgAlt={`${countryDetails?.name?.official} flag`}
           />
         </div>
         <div className="country-details">
           <h1>{countryDetails?.name.official}</h1>
           <div className="test">
             <div>
-              <h3>Native Names:</h3>
+              <h3>
+                Native Names:{" "}
+                <span>
+                  {Object.entries(countryDetails?.name.nativeName ?? {}).map(
+                    ([nativeCode, nativeText]) => (
+                      <span key={nativeCode}>
+                        {nativeText.common}
+                        {", "}
+                      </span>
+                    )
+                  )}
+                </span>
+              </h3>
               <h3>
                 Population:{" "}
                 <span>{countryDetails?.population.toLocaleString()}</span>

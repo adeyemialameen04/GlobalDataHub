@@ -91,6 +91,7 @@ svg {
 #light,
 #dark {
   min-height: 100vh;
+  padding-bottom: 6rem;
 }
 
 #light {
