@@ -3,7 +3,7 @@ import "./countryLists.css";
 import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
 
