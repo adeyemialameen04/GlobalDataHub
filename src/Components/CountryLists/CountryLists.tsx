@@ -3,13 +3,14 @@ import "./countryLists.css";
 import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useState, useDeferredValue } from "react";
 import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
 
 const CountryLists = () => {
   const [region, setRegion] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const defferredSearch = useDeferredValue<string>(searchQuery);
   const [countryNotFound, setCountryNotFound] = useState<boolean>(false);
 
   const getAllCountries = async () => {
@@ -17,15 +18,13 @@ const CountryLists = () => {
       let url = `${BASE_URL}all`;
       if (region.trim() !== "") {
         url = `${BASE_URL}region/${region}`;
-      } else if (searchQuery.trim() !== "") {
+      } else if (defferredSearch.trim() !== "") {
         url = `${BASE_URL}name/${searchQuery}`;
       }
       const response = await axios.get(url);
       const data: [] = await response.data;
       return data;
     } catch (error) {
-      // if (error.response.data.message === "Not Found") {
-      // }
       if (
         axios.isAxiosError(error) &&
         error.response &&

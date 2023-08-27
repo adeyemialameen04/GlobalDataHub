@@ -5,8 +5,8 @@
 .header__container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    /* background-color: red; */
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .input-container {
@@ -46,6 +46,13 @@
 
 .select-region option {
     width: 100%;
+}
+
+@media(min-width:780px) {
+    .header__container {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 #dark .input-container {

@@ -33,10 +33,10 @@
         grid-template-columns: 1fr 1fr;
         flex-direction: row;
         justify-content: space-between;
-        place-items: center;
     }
 
     .country-detail__container .detail-fag-container {
+        /* place-self: center; */
         max-width: 90%;
     }
 
