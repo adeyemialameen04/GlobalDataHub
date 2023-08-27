@@ -86,14 +86,11 @@ const CountryLists = () => {
               ))}
         </>
       </div>
-      <div className="container">
-        {countryNotFound && (
-          <h1>
-            Sorry this country is not found pls check the search box and try
-            again
-          </h1>
-        )}
-      </div>
+      <h1 className="container">
+        {countryNotFound
+          ? "Sorry this country is not found pls check the search box and try again"
+          : ""}
+      </h1>
     </section>
   );
 };

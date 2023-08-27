@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
 import "./header.css";
 
 type HeaderProps = {
@@ -31,7 +32,15 @@ const Header = ({
   return (
     <header className="header">
       <div className="container header__container">
-        <input value={searchQuery} onChange={handleSearchCountry} type="text" />
+        <div className="input-container">
+          <AiOutlineSearch className="search-icon" />
+          <input
+            className="search-input"
+            value={searchQuery}
+            onChange={handleSearchCountry}
+            type="text"
+          />
+        </div>
         <select
           onChange={handleChangeRegion}
           value={region}
